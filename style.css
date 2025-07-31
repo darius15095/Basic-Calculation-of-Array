@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #2c3e50;
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ecf0f1;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: #ecf0f1;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    padding: 5px;
+    word-wrap: break-word;
+    font-size: 15px;
+    line-height: 1.2;
+   
+}
+
+.square:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.Back {
+    width: 100px;
+    height: 50px;
+    background-color: blanchedalmond;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+    padding: 5px;
+    word-wrap: break-word;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.Back:hover {
+    background: bisque;
+}
+
+a {
+    text-decoration: none;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid blanchedalmond;
+    border-radius: 12px;
+    color: #ffffff !important;
+    font-size: 22px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input:focus {
+    background-color: transparent;
+    border-color: #ffd7a0; 
+    box-shadow: none;  
+    outline: none;
+}
+

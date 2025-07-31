@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2 class="title">Prime Number</h2>
+
+        <div class="wrapper">
+
+            <div id="inp"></div>
+
+            <div class="text-center">
+                <h4 id="ans"></h4>
+            </div>
+
+            <div class="text-center">
+                <button class="Back" type="submit" id="random">Random</button>
+                <button class="Back" id="submit">Submit</button><br>
+                <button id="reset" class="Back">Reset</button>
+                <a href="./main.html">
+                    <button class="Back">Back</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            function createInputs() {
+                let number = prompt("How Many Inputs You require?");
+                let num = parseInt(number);
+                let box = document.getElementById("inp");
+
+                if (num <= 0 || isNaN(num)) {
+                    alert("Invalid Input Creating 5 Default Inputs");
+                    num = 5;
+                }
+
+                box.innerHTML = "";
+
+                for (let i = 0; i < num; i++) {
+                    box.innerHTML += `<input type="text" id="num${i}" class="input form-control mb-2" placeholder="Enter a number">`;
+                }
+
+
+                $("#random").off("click").on("click", function () {
+                    $(".input").removeClass("highlight");
+                    for (let i = 0; i < num; i++) {
+                        document.getElementById(`num${i}`).value = parseInt((Math.random() * 99) + 2);
+                    }
+                });
+
+                $("#submit").off("click").on("click", function () {
+                    let ans = document.getElementById("ans");
+                    let prime3 = [];
+                    $(".input").removeClass("highlight");
+
+                    for (let i = 0; i < num; i++) {
+                        let prime2 = parseInt(document.getElementById(`num${i}`).value);
+                        let flag = 1;
+
+                        if (isNaN(prime2) || prime2 < 2) continue;
+
+                        for (let j = 2; j < prime2; j++) {
+                            if (prime2 % j === 0) {
+                                flag = 0;
+                                break;
+                            }
+                        }
+
+                        if (flag === 1) {
+                            prime3.push(prime2);
+                            $(`#num${i}`).addClass("highlight");
+                        }
+                    }
+
+                    ans.innerHTML = `The Prime Numbers Are ${prime3.join(", ")}`;
+                });
+            }
+
+
+            createInputs();
+
+
+            $("#reset").on("click", function () {
+                $("#inp").html("");
+                $("#ans").html("");
+                $("#demo").html("");
+                $("#num").val("");
+                $("#searchValue").val("");
+                createInputs();
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longest-Word</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2 class="title">Longest-Word</h2>
+
+        <div class="wrapper">
+
+            <input type="text" id="input1" class="input form-control" placeholder="Enter input String">
+            <label for="input1" class="form-label"></label>
+
+            <div class="text-center">
+                <h4 id="ans"></h4>
+            </div>
+
+            <div class="text-center">
+                <button class="Back" id="submit">Submit</button><br>
+                <button id="reset" class="Back">Reset</button>
+                <a href="./main.html">
+                    <button class="Back">Back</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#submit").on("click", function () {
+                let input = document.getElementById("input1");
+                let ans = document.getElementById("ans");
+
+                if (input.value.trim() == "") {
+                    ans.innerHTML = "Please Input String";
+                    return;
+                }
+
+                let str = input.value.split(" ");
+                let lgstr;
+                let lgstrlength = 0;
+
+                for (let i = 0; i < str.length; i++) {
+                    if (str[i].length > lgstrlength) {
+                        lgstr = str[i];
+                        lgstrlength = str[i].length;
+                    }
+                }
+
+                ans.innerHTML = `The Longest Word Is : ${lgstr}`;
+            });
+
+            $("#reset").on("click", function () {
+                document.getElementById("input1").value = "";
+                document.getElementById("ans").innerHTML = "";
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagrams</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2 class="title">Anagrams</h2>
+
+        <div class="wrapper">
+
+            <input type="text" id="input1" class="input form-control" placeholder="Enter input String">
+            <label for="input1" class="form-label"></label>
+            <input type="text" id="input2" class="input form-control" placeholder="Enter input String">
+            <label for="input2" class="form-label"></label>
+
+            <div class="text-center">
+                <h4 id="ans"></h4>
+            </div>
+
+            <div class="text-center">
+                <button class="Back" id="submit">Submit</button><br>
+                <button id="reset" class="Back">Reset</button>
+                <a href="./main.html">
+                    <button class="Back">Back</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#submit").on("click", function () {
+                let input1 = document.getElementById("input1")
+                let input2 = document.getElementById("input2")
+                let ans = document.getElementById("ans")
+                if (input1.value.trim() == "" || input2.value.trim() == "") {
+                    ans.innerHTML = "Please Input Both String"
+                    return;
+                }
+
+                let sortedstr1 = input1.value.split("").sort().join("")
+                let sortedstr2 = input2.value.split("").sort().join("")
+                if (sortedstr1 == sortedstr2) {
+                    ans.innerHTML = "Both String Are Anagram String"
+                }
+                else {
+                    ans.innerHTML = "Both String Are not Anagram"
+                }
+            })
+
+            $("#reset").on("click", function () {
+                document.getElementById("input1").value = "";
+                document.getElementById("input2").value = "";
+                document.getElementById("ans").innerHTML = "";
+            });
+        })
+    </script>
+
+</body>
+
+</html>

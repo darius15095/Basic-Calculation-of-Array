@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2 class="title">Palindrome</h2>
+
+        <div class="wrapper">
+            <input type="text" id="input" class="input form-control" placeholder="Enter Input String">
+            <label for="input" class="form-label"></label>
+
+            <div class="text-center">
+                <h4 id="ans"></h4>
+            </div>
+
+            <div class="text-center">
+                <button class="Back" id="submit">Submit</button><br>
+                <button id="reset" class="Back">Reset</button>
+                <a href="./main.html">
+                    <button class="Back">Back</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            let input = document.getElementById("input")
+            let ans = document.getElementById("ans")
+            $("#submit").on("click", function () {
+                if (input.value.trim() == "") {
+                    ans.innerHTML = "Please Enter Input"
+                    return;
+                }
+                let str1 = input.value.toLowerCase();
+                let str2 = str1.split("").reverse().join("")
+                if (str1 == str2) {
+                    ans.innerHTML = "String is Palindrome"
+                }
+                else {
+                    ans.innerHTML = "String is Not Palindrome"
+                }
+            })
+
+            $("#reset").on("click", function () {
+                input.value = "";
+                ans.innerHTML = "";
+            });
+
+        })
+    </script>
+
+</body>
+
+</html>
